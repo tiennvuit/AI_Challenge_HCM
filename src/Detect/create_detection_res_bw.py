@@ -45,7 +45,9 @@ def output_detection(input_path,output_path):
 	for file in listdir(input_path):
 		filename = file[6:-4]
 		file = osp.join(input_path, file)
-		image = cv.imread(file)
+		image = cv.imread(file, cv.IMREAD_GRAYSCALE)
+		cv.imwrite('tmp.png',image)
+		image = cv.imread('tmp.png')
 		predictions = predictor(image)["instances"]
 		boxes = predictions.pred_boxes if predictions.has("pred_boxes") else None
 		classes = predictions.pred_classes if predictions.has("pred_classes") else None
