@@ -4,16 +4,16 @@
                                                                #
 echo "Removing all directories and ..."                        #
                                                                #
-rm -rf DATA/images/*										   #
+sudo rm -rf DATA/image/*										   #
 															   #
 # Loop through all videos and extract to images				   #
-for video in test_DATA/*.mp4; 								   #
+for video in data/test_data/*.mp4; 							   #
 do  														   #
 															   #
 	# Get the camera name									   #
-	name="$(cut -d'/' -f2 <<<"$video")";                       #
+	name="$(cut -d'/' -f3 <<<"$video")";                       #
 	name="$(cut -d'.' -f1 <<<"$name")";                        #
-	   														   #
+	 														   #
 	# Create output directory store extracted images	       #
 	output="DATA/image/$name"								   #
 	mkdir $output			                                   #
@@ -26,7 +26,7 @@ do  														   #
 	          												   #
 	echo "Extracting $name to images ..." ;					   #
 															   #
-	ffmpeg -i $video -r 10/1 $output/image_%d.jpg			   #
+	ffmpeg -i $video -r 10/1 $img1/image_%d.jpg			       #
 															   #
 done;														   #
 															   #
@@ -138,5 +138,10 @@ cp DATA/detection_result/cam_25_det.txt DATA/image/cam_25/det/det.txt
 #####################################################################################################################################################################################################################################
 
 # Tracking progress
-python tools/generate_detections.py --model=model_weights/Tracking/networks/mars-small128.pb --mot_dir=DATA/cam_01 --output_dir=generate_result/
+for image_cam in DATA/image/* ;
+do 
+	name="$(cut -d'/' -f3 <<<"$image_cam")";
+	python tools/generate_detections.py --model=model_weights/tracking/Tracker/networks/mars-small128.pb --mot_dir=DATA/image/$name --output_dir=DATA/generate_result/  ;
+done;
+
 
