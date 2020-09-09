@@ -149,20 +149,20 @@ do
 done;
 
 # Export to hypothesis files
-for file in ../../DATA/generate_result/*;
-do
+# for file in ../../DATA/generate_result/*;
+# do
 
-	name="$(cut -d'/' -f3 <<<"$file")";
-	name="$(cut -d'.' -f1 <<<"$name")";
-	python deep_sort_app.py \
-    --sequence_dir=../../DATA/image/$name \
-    --detection_file=$file \
-    --output_file=../DATA/hypothesis/$name.txt \
-    --min_confidence=0.3 \
-    --nn_budget=100 \
-    --display=True
-done;
-cd ../../
+# 	name="$(cut -d'/' -f3 <<<"$file")";
+# 	name="$(cut -d'.' -f1 <<<"$name")";
+# 	python deep_sort_app.py \
+#     --sequence_dir=../../DATA/image/$name \
+#     --detection_file=$file \
+#     --output_file=../DATA/hypothesis/ \
+#     --min_confidence=0.3 \
+#     --nn_budget=100 \
+#     --display=True
+# done;
+#cd ../../
 #####################################################################################################################################################################################################################################
 
 
