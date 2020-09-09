@@ -15,7 +15,7 @@ RUN pip3 install --upgrade pip
 
 
 # set work directory
-WORKDIR /home
+WORKDIR /home/aic_team082/
 
 # copy project
 COPY . .
@@ -26,4 +26,4 @@ RUN pip3 install -r requirements.txt \
 
 
 # Run app.py when the container launches
-CMD ["run.sh"]
+CMD ["./run.sh"]
