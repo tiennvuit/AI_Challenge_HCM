@@ -4,7 +4,7 @@
                                                                #
 echo "Removing all directories and ..."                        #
                                                                #
-sudo rm -rf DATA/image/*										   #
+rm -rf DATA/image/*										   #
 															   #
 # Loop through all videos and extract to images				   #
 for video in data/test_data/*.mp4; 							   #
@@ -138,10 +138,32 @@ cp DATA/detection_result/cam_25_det.txt DATA/image/cam_25/det/det.txt
 #####################################################################################################################################################################################################################################
 
 # Tracking progress
-for image_cam in DATA/image/* ;
+#####################################################################################################################################################################################################################################
+# Export to .npy file
+cd src/Tracker/
+
+for image_cam in ../../DATA/image/* ;
 do 
 	name="$(cut -d'/' -f3 <<<"$image_cam")";
-	python tools/generate_detections.py --model=model_weights/tracking/Tracker/networks/mars-small128.pb --mot_dir=DATA/image/$name --output_dir=DATA/generate_result/  ;
+	python tools/generate_detections.py --model=../../model_weights/tracking/Tracker/networks/mars-small128.pb --mot_dir=../../DATA/image/$name --output_dir=../../DATA/generate_result/ ;
 done;
 
+# Export to hypothesis files
+for file in ../../DATA/generate_result/*;
+do
 
+	name="$(cut -d'/' -f3 <<<"$file")";
+	name="$(cut -d'.' -f1 <<<"$name")";
+	python deep_sort_app.py \
+    --sequence_dir=../../DATA/image/$name \
+    --detection_file=$file \
+    --output_file=../DATA/hypothesis/$name.txt \
+    --min_confidence=0.3 \
+    --nn_budget=100 \
+    --display=True
+done;
+cd ../../
+#####################################################################################################################################################################################################################################
+
+
+# Counting progress (export to submision file)
