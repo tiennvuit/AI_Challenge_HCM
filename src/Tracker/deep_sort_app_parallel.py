@@ -351,6 +351,6 @@ def extend(x):
 if __name__ == "__main__":
     args = parse_args()
     pool = Pool(processes=4)
-    dir = [extend(str(i)) for i in (1,)]
+    dir = [extend(str(i)) for i in (1,15)]
     pool.map(process, dir)
 

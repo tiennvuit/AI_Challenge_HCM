@@ -1,7 +1,7 @@
 tensorflow-gpu
 torch
 torchvision
-scikit-learn
+scikit-learn==0.22.2
 #opencv-python
 opencv-python==4.2.0.32
 pyyaml==5.1

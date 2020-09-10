@@ -205,7 +205,7 @@ def load_json_region():
 
 polygon_info = load_json_region()
 result_filename = '/data/submission_output/submission.txt'
-for cam in (1,26):
+for cam in range(1,26):
   index = cam
   cam = str(cam)
   json_path = '/data/test_data/cam_' + extend(str(cam)) + '.json'
@@ -272,12 +272,12 @@ for cam in (1,26):
   video_id = 'cam_' + extend(str(cam))
   final_res = []
   for frame_id, movement_id, vehicle_class_id in moi_detections:
-    final_res.append(' '.join([video_id, int(frame_id), movement_id, vehicle_class_id]))
+    final_res.append(' '.join([video_id, str(int(frame_id)), str(movement_id), str(vehicle_class_id)]))
   if cam == '17':
     for fr in range(1,13480,4):
       final_res.append('cam_17 {} 2 1'.format(str(fr)))
-  with open(result_filename, 'w') as result_file:
-    result_file.write('\n'.join(final_res))
+with open(result_filename, 'w') as result_file:
+  result_file.write('\n'.join(final_res))
     # for frame_id, movement_id, vehicle_class_id in moi_detections:
     #   #result_file.write('{} {}\n'.format(movement_id, vehicle_class_id))
     #   result_file.write('{} {} {} {}\n'.format(video_id, int(frame_id), movement_id, vehicle_class_id))
