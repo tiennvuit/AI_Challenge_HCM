@@ -150,25 +150,24 @@ done;
 
 # Export to hypothesis files with multi-thread
 
-python3 deep_sort_app_parallel.py \
-    --min_confidence=0.3 \
-    --nn_budget=100 \
-    --display=False
+#python3 deep_sort_app_parallel.py \
+#    --min_confidence=0.3 \
+#    --nn_budget=100 \
+#    --display=False
 
-# for file in ../../DATA/generate_result/*;
-# do
+for file in ../../DATA/generate_result/*;
+do
 
-# 	name="$(cut -d'/' -f3 <<<"$file")";
-# 	name="$(cut -d'.' -f1 <<<"$name")";
-# 	python deep_sort_app.py \
-#     --sequence_dir=../../DATA/image/$name \
-#     --detection_file=$file \
-#     --output_file=../DATA/hypothesis/ \
-#     --min_confidence=0.3 \
-#     --nn_budget=100 \
-#     --display=True
-# done;
-#cd ../../
+ 	name="$(cut -d'/' -f5 <<<"$file")";
+ 	name="$(cut -d'.' -f1 <<<"$name")";
+ 	python deep_sort_app.py \
+      --sequence_dir=../../DATA/image/$name \
+      --detection_file=$file \
+      --output_file=../DATA/hypothesis/ \
+      --min_confidence=0.3 \
+      --nn_budget=100 \
+      --display=False
+done;
 #####################################################################################################################################################################################################################################
 cd ../../
 
