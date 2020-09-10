@@ -562,6 +562,14 @@ python deep_sort_app.py \
     --nn_budget=100 \
     --display=True
 
+#-------------------
+python3 deep_sort_app.py \
+    --sequence_dir=../../DATA/image/cam_01 \
+    --detection_file=../../DATA/generate_result/cam_01.npy \
+    --output_file=../../DATA/hypothesis/cam_01.txt \
+    --min_confidence=0.3 \
+    --nn_budget=100 \
+    --display=False
 
 
 

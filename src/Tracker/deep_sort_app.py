@@ -273,15 +273,15 @@ def run(sequence_dir, detection_file, output_file, min_confidence,
     
     cam = sequence_dir.split("/")[-1]
 
-    output_path_frames = os.path.join("saved_frames", cam)
+    #output_path_frames = os.path.join("saved_frames", cam)
   
 
-    visualizer.run(frame_callback, output_path_frames)
+    visualizer.run(frame_callback)
 
 
     print("Sequence dir: ", sequence_dir)
     print("Cam: ", cam)
-    print(output_path_frames) 
+    #print(output_path_frames) 
     # Store results.
    
     # for k,row in enumerate(results):

@@ -195,7 +195,7 @@ def run(sequence_dir, detection_file, output_file, min_confidence,
     # print(classs)
     #
 
-    def frame_callback(vis, frame_idx):
+    def frame_callback(self, vis, frame_idx):
         print("Processing frame %05d" % frame_idx)
 
         #input()
@@ -265,15 +265,15 @@ def run(sequence_dir, detection_file, output_file, min_confidence,
     
     cam = sequence_dir.split("/")[-1]
 
-    output_path_frames = os.path.join("saved_frames", cam)
+    #output_path_frames = os.path.join("saved_frames", cam)
   
 
-    visualizer.run(frame_callback, output_path_frames)
+    visualizer.run(frame_callback)
 
 
     print("Sequence dir: ", sequence_dir)
     print("Cam: ", cam)
-    print(output_path_frames) 
+    #print(output_path_frames) 
     # Store results.
    
     # for k,row in enumerate(results):
@@ -304,10 +304,10 @@ def parse_args():
     parser = argparse.ArgumentParser(description="Deep SORT")
     parser.add_argument(
         "--sequence_dir", help="Path to MOTChallenge sequence directory",
-        default=None, required=True)
+        default=None, required=False)
     parser.add_argument(
         "--detection_file", help="Path to custom detections.", default=None,
-        required=True)
+        required=False)
     parser.add_argument(
         "--output_file", help="Path to the tracking output file. This file will"
         " contain the tracking results on completion.",
@@ -351,6 +351,6 @@ def extend(x):
 if __name__ == "__main__":
     args = parse_args()
     pool = Pool(processes=4)
-    dir = [extend(str(i)) for i in (1,15)]
+    dir = [extend(str(i)) for i in (1,)]
     pool.map(process, dir)
 
