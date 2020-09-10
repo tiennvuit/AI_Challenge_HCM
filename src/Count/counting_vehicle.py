@@ -205,7 +205,7 @@ def load_json_region():
 
 polygon_info = load_json_region()
 result_filename = '/data/submission_output/submission.txt'
-for cam in (1,26):
+for cam in (1,):
   index = cam
   cam = str(cam)
   json_path = '/data/test_data/cam_' + extend(str(cam)) + '.json'
