@@ -160,16 +160,15 @@ do
 
  	name="$(cut -d'/' -f5 <<<"$file")";
  	name="$(cut -d'.' -f1 <<<"$name")";
- 	python deep_sort_app.py \
+ 	python3 deep_sort_app.py \
       --sequence_dir=../../DATA/image/$name \
       --detection_file=$file \
-      --output_file=../DATA/hypothesis/ \
+      --output_file=../../DATA/hypothesis/$name.txt \
       --min_confidence=0.3 \
       --nn_budget=100 \
       --display=False
 done;
 #####################################################################################################################################################################################################################################
-cd ../../
 
 # Counting progress (export to submision file)
-python3 src/Count/counting_vehicle.py
+python3 ../../src/Count/counting_vehicle.py

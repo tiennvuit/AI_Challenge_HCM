@@ -1,4 +1,4 @@
-tensorflow-gpu
+tensorflow==1.14.0
 torch
 torchvision
 scikit-learn==0.22.2
