@@ -205,6 +205,7 @@ def load_json_region():
 
 polygon_info = load_json_region()
 result_filename = '/data/submission_output/submission.txt'
+final_res = []
 for cam in range(1,26):
   index = cam
   cam = str(cam)
@@ -270,7 +271,6 @@ for cam in range(1,26):
 
   moi_detections = counting_moi(paths, vehicle_vector_list)
   video_id = 'cam_' + extend(str(cam))
-  final_res = []
   for frame_id, movement_id, vehicle_class_id in moi_detections:
     final_res.append(' '.join([video_id, str(int(frame_id)), str(movement_id), str(vehicle_class_id)]))
   if cam == '17':
