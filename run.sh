@@ -26,7 +26,7 @@ do  														   #
 	          												   #
 	echo "Extracting $name to images ..." ;					   #
 															   #
-	ffmpeg -i $video -r 10/1 $img1/image_%d.jpg			       #
+	ffmpeg -i $video -r 10/1 $img1/image_%d.jpg	       #
 															   #
 done;														   #
 															   #
