@@ -279,7 +279,7 @@ def run(sequence_dir, detection_file, output_file, min_confidence,
     visualizer.run(frame_callback)
 
 
-    print("Sequence dir: ", sequence_dir)
+    #print("Sequence dir: ", sequence_dir)
     print("Cam: ", cam)
     #print(output_path_frames) 
     # Store results.
@@ -288,7 +288,7 @@ def run(sequence_dir, detection_file, output_file, min_confidence,
     #    print('%d,%d,%.2f,%.2f,%.2f,%.2f,1,-1,-1,-1'.format(
     #             row[0], row[1], row[2], row[3], row[4], row[5]))
     
-    print("Ahihi")
+    #print("Ahihi")
 
     f = open(output_file, 'w')
     #print("The abs path: ", os.path.join(os.path.abspath(output_file), cam + ".txt"))
@@ -298,7 +298,7 @@ def run(sequence_dir, detection_file, output_file, min_confidence,
 
     
 
-    print("hiaa")
+    #print("hiaa")
 
 def bool_string(input_string):
     if input_string not in {"True","False"}:
