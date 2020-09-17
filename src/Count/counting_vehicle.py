@@ -277,7 +277,7 @@ for cam in range(1,26):
     for fr in range(1,13480,4):
       final_res.append('cam_17 {} 2 1'.format(str(fr)))
 
-with open(result_filename, 'w') as result_file:
+with open(result_filename, 'a+') as result_file:
   result_file.write('\n'.join(final_res))
     # for frame_id, movement_id, vehicle_class_id in moi_detections:
     #   #result_file.write('{} {}\n'.format(movement_id, vehicle_class_id))
