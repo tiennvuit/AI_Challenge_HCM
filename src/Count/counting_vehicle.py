@@ -208,7 +208,7 @@ result_filename = '/data/submission_output/submission.txt'
 for cam in range(1,26):
   index = cam
   cam = str(cam)
-  json_path = '../../DATA/ROI_info/cam_' + extend(str(cam)) + '.json'
+  json_path = '/data/test_data/cam_' + extend(str(cam)) + '.json'
   polygon, paths = load_zone_anno(json_path)
   path = '../../DATA/hypothesis/cam_' + extend(str(cam)) + '.txt' 
   tracker_id = []
